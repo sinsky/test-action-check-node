@@ -1,0 +1,6 @@
+name: Node Version Checker
+description: Checks the runtime Node.js version
+runs:
+  using: node24
+  main: index.js
+
