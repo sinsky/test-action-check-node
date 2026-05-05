@@ -1,0 +1,31 @@
+name: get secret env from infisical
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  get-env:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Infisical/secrets-action@v1.0.16
+        with:
+          method: oidc
+          identity-id: 482c4e72-174d-459c-bd2c-18b527cc6927
+          project-slug: demo-lq1m
+          domain: https://app.infisical.com
+          env-slug: dev
+      - name: check env
+        run: |
+          if [ -z "${{ env.DEMO }}" ]; then
+            echo "❌ Secret not found!"
+            exit 1
+          else
+            echo "✅ Secret found! Length: ${#DEMO}"
+          fi
+
