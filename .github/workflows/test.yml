@@ -13,3 +13,5 @@ jobs:
         uses: actions/checkout@v4
       - name: Run local Action
         uses: ./
+      - name: check nodeversion
+        run: node --version
