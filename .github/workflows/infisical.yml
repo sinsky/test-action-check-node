@@ -13,7 +13,7 @@ jobs:
   get-env:
     runs-on: ubuntu-latest
     steps:
-      - uses: Infisical/secrets-action@v1
+      - uses: Infisical/secrets-action@v1.0.16
         with:
           method: oidc
           identity-id: 482c4e72-174d-459c-bd2c-18b527cc6927
